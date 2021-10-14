@@ -73,3 +73,10 @@ main>.container {
     bottom: 0;
     width: 100%;
 }
+.Fizz, .Buzz{
+    font-weight: bold;
+}
+#fbTemplate td.FizzBuzz{
+    font-weight: bolder;
+    color: #ff0000;
+}
