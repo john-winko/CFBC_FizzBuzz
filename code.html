@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By John Winko</title>
+    <title>Fizz Buzz: A Coding Project By John Winko</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="img/JW_white.svg" width="30" height="24"
-                    class="d-inline-block align-text-top">&nbsp; The App</a>
+                    class="d-inline-block align-text-top">&nbsp; Fizz Buzz</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -42,7 +42,7 @@
                         <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Git Repo</a>
+                        <a class="nav-link" href="https://github.com/john-winko/CFBC_FizzBuzz">Git Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="https://www.johnwinko.com">About</a>
@@ -55,20 +55,94 @@
     <!-- === Main Section -->
     <main class="flex-shrink-0">
         <div class="container py-5 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for APP NAME.</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for Fizz Buzz.</h2>
             <div class="row row-cols-1 row-cols-md-2 pt-1">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        // Call Hello World
-                        function HelloWorld(){
-                            alert("hello World");
-                        }
+                        // Main Function to perform the fizz buzz
+function fizzBuzz() {
+    // get fizz and buzz
+    let fizz = document.getElementById("fizzValue").value;
+    let buzz = document.getElementById("buzzValue").value;
+
+    fizz = parseInt(fizz);
+    buzz = parseInt(buzz);
+
+    // validate input
+    let notValid = !Number.isInteger(fizz) || !Number.isInteger(buzz);
+    if (notValid) {
+        alert("Must be a number");
+        return;
+    }
+
+    // generate array[100] of fizz/buzz
+    let arrFizzBuzz = generateFizzBuzz(fizz, buzz);
+
+    // push results to screen
+    displayFizzBuzz(arrFizzBuzz);
+}
+
+// generate an array of numbers, fizz, buzz and fizz buzz
+function generateFizzBuzz(fizz, buzz) {
+    let arrFB = [0];
+    for (let index = 1; index <= 100; index++) {
+        if (index % fizz == 0 && index % buzz == 0) {
+            arrFB.push("FizzBuzz")
+        } else if (index % fizz == 0) {
+            arrFB.push("Fizz");
+        } else if (index % buzz == 0) {
+            arrFB.push("Buzz");
+        } else {
+            arrFB.push(index);
+        }
+    }
+    return arrFB;
+}
+
+// display fizzbuzz array onto screen in table format
+function displayFizzBuzz(arrFizzBuzz) {
+    let tableBody = document.getElementById("results");
+    let tableHeader = document.getElementById("fbHeader");
+    let fbTemplate = document.getElementById("fbTemplate");
+    tableBody.innerHTML = "";
+    tableBody.appendChild(tableHeader);
+
+    for (let i = 1; i < arrFizzBuzz.length; i += 5) {
+        const templateRow = document.importNode(fbTemplate, true);
+        rowCols = templateRow.querySelectorAll("td");
+
+        rowCols[0].classList.add(arrFizzBuzz[i]);
+        rowCols[0].textContent = arrFizzBuzz[i];
+
+        rowCols[1].classList.add(arrFizzBuzz[i + 1]);
+        rowCols[1].textContent = arrFizzBuzz[i + 1];
+
+        rowCols[2].classList.add(arrFizzBuzz[i + 2]);
+        rowCols[2].textContent = arrFizzBuzz[i + 2];
+
+        rowCols[3].classList.add(arrFizzBuzz[i + 3]);
+        rowCols[3].textContent = arrFizzBuzz[i + 3];
+
+        rowCols[4].classList.add(arrFizzBuzz[i + 4]);
+        rowCols[4].textContent = arrFizzBuzz[i + 4];
+
+        tableBody.appendChild(templateRow);
+    }
+}
                     </code></pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The code is structured in one function</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
+                    <p>The code is structured in three functions</p>
+                    <h5>fizzBuzz()</h5>
+                    <p>Captures the fizz and buzz by elementID in the form. Validates the input for integers (alerts if
+                        not). </p>
+                    <h5>generateFizzBuzz(fizz, buzz)</h5>
+                    <p>Generates an array of 100 items. Array index is equal to the integer value of the index unless:
+                        if it is evenly divisible by fizz, buzz or both will substitute the value with "fizz", "buzz" or
+                        "fizzbuzz" respectively </p>
+                    <h5>displayFizzBuzz(arrFizzBuzz)</h5>
+                    <p>Grabs the table element on the page and replaces the template row's (fbTemplate) td elements with
+                        the index of arrFizzBuzz.</p>
                 </div>
             </div>
         </div>
@@ -90,22 +164,22 @@
                 <div class="col d-flex align-items-center justify-content-center justify-content-lg-end">
                     <div class="row">
                         <div class="col social">
-                            <a href="#" target="_blank">
+                            <a href="https://www.linkedin.com/in/john-winko/" target="_blank">
                                 <i class="fab fa-linkedin fa-2x"></i>
                             </a>
                         </div>
                         <div class="col social">
-                            <a href="#" target="_blank">
+                            <a href="https://github.com/john-winko" target="_blank">
                                 <i class="fab fa-github fa-2x"></i>
                             </a>
                         </div>
                         <div class="col social">
-                            <a href="#" target="_blank">
+                            <a href="https://twitter.com/JohnWinko" target="_blank">
                                 <i class="fab fa-twitter fa-2x"></i>
                             </a>
                         </div>
                         <div class="col social">
-                            <a href="#" target="_blank">
+                            <a href="https://www.facebook.com/john.winko" target="_blank">
                                 <i class="fab fa-youtube fa-2x"></i>
                             </a>
                         </div>
