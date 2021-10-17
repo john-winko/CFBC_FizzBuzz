@@ -74,15 +74,15 @@ main>.container {
     width: 100%;
 }
 
-#fbTemplate td.Fizz{
-    color:blue;
+#results .Fizz{
+    color:rgb(39, 130, 160);
 }
 
-#fbTemplate td.Buzz{
+#results .Buzz{
     color: green;
 }
 
-#fbTemplate td.FizzBuzz{
+#results .FizzBuzz{
     font-weight: bolder;
     color: #ff0000;
 }

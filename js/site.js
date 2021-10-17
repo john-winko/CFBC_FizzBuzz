@@ -47,7 +47,7 @@ function displayFizzBuzz(arrFizzBuzz) {
     tableBody.appendChild(tableHeader);
 
     for (let i = 1; i < arrFizzBuzz.length; i += 5) {
-        const templateRow = document.importNode(fbTemplate, true);
+        const templateRow = document.importNode(fbTemplate.content, true);
         rowCols = templateRow.querySelectorAll("td");
 
         rowCols[0].classList.add(arrFizzBuzz[i]);
